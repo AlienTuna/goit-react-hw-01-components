@@ -2,6 +2,8 @@ import clsx from "clsx";
 import css from "./profile.module.css";
 import commonCss from "../common.module.css";
 
+import PropTypes from "prop-types";
+
 import { ProfileStats } from "./ProfileStats";
 
 export function Profile({ username, tag, location, avatar, stats }) {
@@ -29,4 +31,8 @@ export function Profile({ username, tag, location, avatar, stats }) {
             </ul>
         </div>
     )
+}
+ProfileStats.propTypes = {
+    stat_name: PropTypes.string.isRequired,
+    stat_number: PropTypes.number.isRequired,
 }

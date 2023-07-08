@@ -4,7 +4,7 @@ import css from "./profile.module.css";
 
 export function ProfileStats({stat_name, stat_number}) {
     return (
-        <li className={css.statItem} key={stat_name}>
+        <li className={css.statItem}>
             <span className={css.stat_name}>{stat_name}</span>
             <span className={css.stat_number}>{stat_number.toLocaleString('en-US')}</span>
         </li>
