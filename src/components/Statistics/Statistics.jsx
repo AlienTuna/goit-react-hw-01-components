@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import commonCss from "../common.module.css";
 import css from "./statistics.module.css";
+import getRandomHexColor from "../../utils/getRandomHexColor";
 
 export function Statistics(props) {
     return (
@@ -9,7 +10,7 @@ export function Statistics(props) {
 
             <ul className={css["stat-list"]}>
                 {props.data.map(({ id, label, percentage }) =>
-                    <li className={css["stat-item"]} key={id} style={{backgroundColor: getRandomHexColor()}}>
+                    <li className={css["stat-item"]} key={id} style={{ backgroundColor: getRandomHexColor() }}>
                         <span className={css["label"]}>{label}</span>
                         <span className={css["number"]}>{percentage + '%'}</span>
                     </li>
@@ -19,6 +20,3 @@ export function Statistics(props) {
     )
 }
 
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}`;
-  }
