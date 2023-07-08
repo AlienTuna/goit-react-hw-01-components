@@ -3,8 +3,8 @@ import commonCss from "../common.module.css";
 
 export function TransactionHistory(props) {
     return (
-        <div class={clsx(commonCss.container)}>
-            <table class="transaction-history">
+        <div className={clsx(commonCss.container)}>
+            <table className="transaction-history">
                 <thead>
                     <tr>
                         <th>Type</th>
@@ -15,7 +15,7 @@ export function TransactionHistory(props) {
 
                 <tbody>
                     {props.data.map(({ id, type, amount, currency }) =>
-                        <tr>
+                        <tr key={id}>
                             <td>{type}</td>
                             <td>{amount}</td>
                             <td>{currency}</td>
