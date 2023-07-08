@@ -1,24 +1,25 @@
 import clsx from "clsx";
 import commonCss from "../common.module.css";
+import css from "./transactionHistory.module.css";
 
 export function TransactionHistory(props) {
     return (
-        <div className={clsx(commonCss.container)}>
-            <table className="transaction-history">
-                <thead>
+        <div className={clsx(commonCss.container, css["transaction-section"])}>
+            <table className={css.table}>
+                <thead className={css["table-header"]}>
                     <tr>
-                        <th>Type</th>
-                        <th>Amount</th>
-                        <th>Currency</th>
+                        <th className={css["th-col"]}>Type</th>
+                        <th className={css["th-col"]}>Amount</th>
+                        <th className={css["th-col"]}>Currency</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {props.data.map(({ id, type, amount, currency }) =>
-                        <tr key={id}>
-                            <td>{type}</td>
-                            <td>{amount}</td>
-                            <td>{currency}</td>
+                        <tr className={css["td-row"]} key={id}>
+                            <td className={clsx(css["td-col"], css.type)}>{type}</td>
+                            <td className={css["td-col"]}>{amount}</td>
+                            <td className={css["td-col"]}>{currency}</td>
                         </tr>
                     )}
                 </tbody>
