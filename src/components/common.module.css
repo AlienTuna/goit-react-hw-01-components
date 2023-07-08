@@ -1,12 +1,13 @@
 :root {
     --light-txt-clr: rgb(156, 169, 175);
+    --midgrey-txt-clr: rgb(108, 120, 126);
     --bold-txt-clr: black;
     --statistics-header-clr: #000000a1;
 
     --white-bg-clr: #fff;
     --grey-bg-clr: #dadde671;
     --grey-borders-clr:rgba(184, 187, 192, 0.473);
-    
+    --table-header: rgb(103, 195, 231);
 
 }
 .container {

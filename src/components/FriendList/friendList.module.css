@@ -13,7 +13,7 @@
     align-items: center;
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0 0 15px 2px var(--statistics-header-clr);
+    box-shadow: 0 0 6px 0 var(--light-txt-clr);
     display: flex;
     padding: 10px;
 }
