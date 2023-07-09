@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes, { arrayOf } from "prop-types";
 // import Profile component and data
 import user from "components/Profile/user.json";
-import {Profile} from "./Profile/Profile";
+import { Profile } from "./Profile/Profile";
 // import stats component and data
-import {Statistics} from "components/Statistics/Statistics";
+import { Statistics } from "components/Statistics/Statistics";
 import statData from "components/Statistics/data.json";
 // import FriendList component and data
 import { FriendList } from "./FriendList/FriendList";
@@ -46,16 +46,40 @@ Profile.propTypes = {
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  stats: PropTypes.object.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.string.isRequired,
+    views: PropTypes.string.isRequired,
+    likes: PropTypes.string.isRequired,
+  }
+  ).isRequired,
 }
 
 Statistics.propTypes = {
-  data: arrayOf(PropTypes.object).isRequired,
+  data: arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }).isRequired).isRequired,
   title: PropTypes.string
 }
 FriendList.propTypes = {
-  data: arrayOf(PropTypes.object).isRequired,
+  data: arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    }).isRequired
+  )
 }
+
 TransactionHistory.propTypes = {
-  data: arrayOf(PropTypes.object).isRequired,
+  data: arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 }
