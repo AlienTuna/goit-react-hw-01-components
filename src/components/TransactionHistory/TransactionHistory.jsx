@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import commonCss from "../common.module.css";
 import css from "./transactionHistory.module.css";
+import PropTypes, { arrayOf } from "prop-types";
 
 export function TransactionHistory(props) {
     return (
@@ -27,3 +28,14 @@ export function TransactionHistory(props) {
         </div>
     )
 }
+
+TransactionHistory.propTypes = {
+    data: arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        amount: PropTypes.string.isRequired,
+        currency: PropTypes.string.isRequired,
+      }).isRequired
+    ).isRequired,
+  }

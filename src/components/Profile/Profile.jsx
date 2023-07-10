@@ -2,7 +2,7 @@ import clsx from "clsx";
 import css from "./profile.module.css";
 import commonCss from "../common.module.css";
 
-import PropTypes from "prop-types";
+import PropTypes, { arrayOf } from "prop-types";
 
 import { ProfileStats } from "./ProfileStats";
 
@@ -32,7 +32,17 @@ export function Profile({ username, tag, location, avatar, stats }) {
         </div>
     )
 }
-ProfileStats.propTypes = {
-    stat_name: PropTypes.string.isRequired,
-    stat_number: PropTypes.number.isRequired,
-}
+
+
+Profile.propTypes = {
+    username: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    stats: PropTypes.shape({
+      followers: PropTypes.number.isRequired,
+      views: PropTypes.number.isRequired,
+      likes: PropTypes.number.isRequired,
+    }
+    ).isRequired,
+  }

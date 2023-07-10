@@ -2,6 +2,7 @@ import clsx from "clsx";
 import commonCss from "../common.module.css";
 import css from "./friendList.module.css";
 import {FriendListItem} from "./FriendListItem/FriendListItem"
+import PropTypes, { arrayOf } from "prop-types";
 
 export function FriendList({ data }) {
     return (
@@ -12,10 +13,21 @@ export function FriendList({ data }) {
                     avatar={avatar}
                     name={name}
                     isOnline={isOnline}
-                    id={id}
+                    key={id}
                     />
                 )}
             </ul>
         </div>
     )
 }
+
+FriendList.propTypes = {
+    data: arrayOf(
+      PropTypes.shape({
+        avatar: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        isOnline: PropTypes.bool.isRequired,
+        id: PropTypes.number.isRequired,
+      }).isRequired
+    )
+  }

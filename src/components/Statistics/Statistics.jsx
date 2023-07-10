@@ -2,6 +2,7 @@ import clsx from "clsx";
 import commonCss from "../common.module.css";
 import css from "./statistics.module.css";
 import getRandomHexColor from "../../utils/getRandomHexColor";
+import PropTypes, { arrayOf } from "prop-types";
 
 export function Statistics(props) {
     return (
@@ -20,3 +21,11 @@ export function Statistics(props) {
     )
 }
 
+Statistics.propTypes = {
+    data: arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired).isRequired,
+    title: PropTypes.string
+  }

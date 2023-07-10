@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes, { arrayOf } from "prop-types";
 // import Profile component and data
 import user from "components/Profile/user.json";
 import { Profile } from "./Profile/Profile";
@@ -40,46 +39,3 @@ export const App = () => {
     </div>
   );
 };
-
-Profile.propTypes = {
-  username: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  stats: PropTypes.shape({
-    followers: PropTypes.string.isRequired,
-    views: PropTypes.string.isRequired,
-    likes: PropTypes.string.isRequired,
-  }
-  ).isRequired,
-}
-
-Statistics.propTypes = {
-  data: arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    percentage: PropTypes.number.isRequired,
-  }).isRequired).isRequired,
-  title: PropTypes.string
-}
-FriendList.propTypes = {
-  data: arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isOnline: PropTypes.bool.isRequired,
-      id: PropTypes.number.isRequired,
-    }).isRequired
-  )
-}
-
-TransactionHistory.propTypes = {
-  data: arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      amount: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-}

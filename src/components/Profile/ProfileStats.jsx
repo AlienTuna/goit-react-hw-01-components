@@ -1,6 +1,5 @@
-// import clsx from "clsx";
 import css from "./profile.module.css";
-// import commonCss from "../common.module.css";
+import PropTypes, { arrayOf } from "prop-types";
 
 export function ProfileStats({stat_name, stat_number}) {
     return (
@@ -9,4 +8,9 @@ export function ProfileStats({stat_name, stat_number}) {
             <span className={css.stat_number}>{stat_number.toLocaleString('en-US')}</span>
         </li>
     )
+}
+
+ProfileStats.propTypes = {
+    stat_name: PropTypes.string.isRequired,
+    stat_number: PropTypes.number.isRequired,
 }
